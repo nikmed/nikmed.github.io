@@ -4,12 +4,13 @@
     function sendData(data)
     {
       console.log(data);
+      alert(data);
       let response = await fetch('http://api.dev.alor.ru/client/v1.0/leads/actions/crm-test', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(data)
         });
     }
   </script>
