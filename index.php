@@ -5,10 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   exit;
 }
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/include/classes/Config.php");
 header('Content-Type: application/json;charset=utf-8');
 
-$json = file_get_contents('php://input');
+$json = $_POST;
+echo $json;
 $values = json_decode($json, true);
 
 
