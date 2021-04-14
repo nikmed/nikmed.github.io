@@ -1,10 +1,6 @@
 <?
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-  exit;
-}
-
 header('Content-Type: application/json;charset=utf-8');
 
 $json = $_POST;
@@ -13,10 +9,7 @@ $values = json_decode($json, true);
 
 
 $header = array('Content-Type: application/json;charset=utf-8');
-$types = explode(',',$values['source']);
 
-$type = trim($types[0]);
-$values['source'] = trim($types[1]);
 $values['origin'] = 'https://nikmed.github.io/'
 if(!isset($values['site'])){
   $values['site'] = 'https://alorbroker.ru/';	
