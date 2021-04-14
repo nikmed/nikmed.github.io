@@ -21,8 +21,10 @@
     <h2>HTML Forms</h2>
 
     <form
-      action=""
-      method="POST"
+      onsubmit="sendData(event, this)"
+      action="#"
+      method="GET"
+      enctype="application/json;charset=utf-8"
     >
       First name:<br />
       <input type="text" name="FirstName" value="Mickey" />
@@ -33,5 +35,9 @@
       <input type="submit" value="Submit" onclick="alert('click')" />
     </form>
 
+    <p>
+      If you click the "Submit" button, the form-data will be sent to a page
+      called "/action_page.php".
+    </p>
   </body>
 </html>
