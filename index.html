@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html>
+  <script>
+    function sendData(data)
+    {
+      console.log(data);
+      let response = await fetch('http://api.dev.alor.ru/client/v1.0/leads/actions/crm-test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(user)
+        });
+    }
+  </script>
 <body>
 
 <h2>HTML Forms</h2>
@@ -11,7 +24,7 @@
   Last name:<br>
   <input type="text" name="LastName" value="Mouse">
   <br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" onclick="alert('click')">
 </form> 
 
 <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
