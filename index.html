@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html>
   <script>
-    function sendData(data)
-    {
-      console.log(data);
-      alert(data);
-      let response = await fetch('http://api.dev.alor.ru/client/v1.0/leads/actions/crm-test', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(data)
-        });
-    }
+        async function sendData(event, data)
+        {
+          event.preventDeafult();
+          console.log(data);
+          alert(data);
+          let response = await fetch('http://api.dev.alor.ru/client/v1.0/leads/actions/crm-test', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(data)
+            });
+            let result = await response.json();
+    alert(result.message);
+        }
   </script>
-<body>
+  <body>
+    <h2>HTML Forms</h2>
 
-<h2>HTML Forms</h2>
+    <form
+      onsubmit="sendData(event, this)"
+      method="POST"
+      enctype="application/json;charset=utf-8"
+    >
+      First name:<br />
+      <input type="text" name="FirstName" value="Mickey" />
+      <br />
+      Last name:<br />
+      <input type="text" name="LastName" value="Mouse" />
+      <br /><br />
+      <input type="submit" value="Submit" onclick="alert('click')" />
+    </form>
 
-<form onsubmit="sendData(this)" method="POST" enctype="application/json;charset=utf-8">
-  First name:<br>
-  <input type="text" name="FirstName" value="Mickey">
-  <br>
-  Last name:<br>
-  <input type="text" name="LastName" value="Mouse">
-  <br><br>
-  <input type="submit" value="Submit" onclick="alert('click')">
-</form> 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
-
-</body>
+    <p>
+      If you click the "Submit" button, the form-data will be sent to a page
+      called "/action_page.php".
+    </p>
+  </body>
 </html>
-
