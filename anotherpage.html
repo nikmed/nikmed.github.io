@@ -3,19 +3,23 @@
   <script>
         async function sendData()
         {
-            var myHeaders = new Headers();
-myHeaders.append("Cookie", "PHPSESSID=2aa8fb363dbd87ac9dd79581f15d98a2");
+          var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({"name":"Test","phone":"+7 (999) 999-99-99","personalDataAccess":true,"source":"demo","ResponseUrl":"http://alorbroker.ru","Site":"http://alorbroker.ru","city":"moscow"});
 
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
+  body: raw,
   redirect: 'follow'
 };
 
-fetch("http://api.dev.alor.ru/cmsApi/V1/site/form/crm-form", requestOptions)
+fetch("http://localhost:5000/cmsapi/v1/site/form/crm-form", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
-  .catch(error => console.log('error', error));}
+  .catch(error => console.log('error', error));
+}
   </script>
   <body>
     <h2>HTML Forms</h2>
