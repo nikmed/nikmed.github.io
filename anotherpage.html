@@ -15,7 +15,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:5000/cmsapi/v1/site/form/crm-form", requestOptions)
+fetch("http://localhost:5000/cmsapi/v1/site/form/lead-form", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
